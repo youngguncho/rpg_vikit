@@ -17,6 +17,7 @@ ENDIF()
 FIND_PACKAGE(catkin REQUIRED COMPONENTS roscpp vikit_common visualization_msgs tf cmake_modules)
 
 # Add plain cmake packages 
+SET(Sophus_LIBRARIES libSophus.so)
 FIND_PACKAGE(OpenCV REQUIRED)
 FIND_PACKAGE(Eigen REQUIRED)
 FIND_PACKAGE(Sophus REQUIRED)
@@ -44,6 +45,7 @@ LIST(APPEND SOURCEFILES
 )
 
 # Create vikit library
+SET(Sophus_LIBRARIES libSophus.so)
 ADD_LIBRARY(${PROJECT_NAME} SHARED ${SOURCEFILES})
 TARGET_LINK_LIBRARIES(
   ${PROJECT_NAME}
